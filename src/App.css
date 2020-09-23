@@ -1,3 +1,16 @@
+.login-form{
+  padding-top: 1em;
+  padding-left: 20em;
+  padding-right: 20em;
+}
+
+.login-title{
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.125;
+}
+
+
 .App {
   text-align: center;
 }
