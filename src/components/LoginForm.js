@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-
 export class LoginForm extends Component {
   constructor(){
   super();
   this.state={ email:'', password:'' }
+  this.state = { results: {}}
   }
 
   _handleChange = (e) => {
@@ -14,7 +14,7 @@ export class LoginForm extends Component {
   _handleSubmit = (e) => {
     e.preventDefault()
 
-    const url = "http://192.168.2.4:8084/client/login";
+    const url = "http://localhost:8084/client/login";
     const data = { email:this.state.email, password:this.state.password }
     const requestOptions = {
         method: 'POST',
@@ -22,17 +22,27 @@ export class LoginForm extends Component {
         body: JSON.stringify(data)
     };
 
+
     fetch(url, requestOptions)
       .then(res => res.json())
       .catch(error => console.error("Error:", error))
-      .then(response => console.log("Success:", response)); }
+      .then(results => {
+        const Client  = []
+        Client[0]= {"idClient":results.idClient}
+        Client[1]= {"name":results.name}
+        Client[2]=  {"email": results.email}
+        Client[3]= {"password":results.password}
+        Client[4]= {"rif": results.rif}
+        Client[5]= {"address": results.address}
+        Client[6]={"status": results.status}
 
+        this.props.onResults(Client)
+    })
+}
 
   render () {
     return(
         <form className="login-form" onSubmit={this._handleSubmit}>
-
-
           <div className="field">
             <p className="control has-icons-left has-icons-right">
               <input className="input"
@@ -48,7 +58,6 @@ export class LoginForm extends Component {
               </span>
             </p>
           </div>
-
           <div className="field">
             <p className="control has-icons-left">
               <input className="input"
@@ -61,10 +70,9 @@ export class LoginForm extends Component {
               </span>
             </p>
           </div>
-
           <div className="field">
             <p className="control">
-              <button className="button is-success">
+              <button  className="button is-success">
                 Login
               </button>
             </p>
