@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
 export class Menu extends Component{
-  static propTypes = {
-      clients: PropTypes.array
-    }
-  render(){
-    const { clients } = this.props
-    console.log(clients);
-      return(
 
-          <div>
-          <p>clients[0]</p>
+  render(){
+      return(
+          <div className="column is-3 ">
+            <aside className="menu">
+              <p className="menu-label">
+                General
+              </p>
+              <ul className="menu-list">
+                <li>Dashboard</li>
+                <li>Customers</li>
+              </ul>
+            </aside>
           </div>
       )
     }

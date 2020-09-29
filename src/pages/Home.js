@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Title} from '../components/Title.js'
 import {LoginForm} from '../components/LoginForm.js'
-import {Menu} from '../components/Menu.js'
+import {MainPage} from './MainPage.js'
 
 export class Home extends Component {
   state = { usedSearch: false, results:[] }
@@ -10,23 +10,17 @@ export class Home extends Component {
     this.setState( {results ,usedSearch: true })
   }
 
-  _renderResults(){
-      return this.state.results.length === 0
-         ? <p>Results not found</p>
-         : <Menu clients={this.state.results}/>
-    }
-
   render(){
+    if (this.state.usedSearch){
+      return <MainPage clients={this.state.results}/>
+  }
+
     return(
       <div>
           <div className='Header'>
               <Title>Login</Title>
               <LoginForm onResults={this._handleResults} />
           </div>
-                {  this.state.usedSearch
-                      ? this._renderResults()
-                      :<small>Use the form to search a movie</small>
-                    }
       </div>
     )
   }

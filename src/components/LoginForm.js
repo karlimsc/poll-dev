@@ -27,16 +27,7 @@ export class LoginForm extends Component {
       .then(res => res.json())
       .catch(error => console.error("Error:", error))
       .then(results => {
-        const Client  = []
-        Client[0]= {"idClient":results.idClient}
-        Client[1]= {"name":results.name}
-        Client[2]=  {"email": results.email}
-        Client[3]= {"password":results.password}
-        Client[4]= {"rif": results.rif}
-        Client[5]= {"address": results.address}
-        Client[6]={"status": results.status}
-
-        this.props.onResults(Client)
+        this.props.onResults(results)
     })
 }
 
