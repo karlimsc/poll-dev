@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import  {Container} from '../components/Container.js'
+import {Container} from '../components/Container.js'
 import {Menu} from '../components/Menu.js'
+import {PanelPoll} from '../components/PanelPoll.js'
 
 export class MainPage extends Component{
 
   render(){
     const { clients } = this.props
-    console.log(clients)
     return(
     <div className="main-page">
     <nav className="navbar is-white"></nav>
@@ -18,6 +18,22 @@ export class MainPage extends Component{
             </div>
             <div className="column is-9">
               <Container clients={clients} />
+              <div>
+                <nav className="navbar"></nav>
+              </div>
+              <div className="columns">
+                <div className="column is-6">
+                  <div className="card events-card">
+                    <PanelPoll id={clients.idClient}/>
+                  </div>
+                </div>
+                <div className="column is-6">
+                  <div className="card">
+                  </div>
+                  <div className="card">
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
       </div>

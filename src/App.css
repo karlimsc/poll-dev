@@ -32,7 +32,17 @@
   background-color: #ECF0F3
 }
 
+.justify{
+  justify-content: left !important;
+}
+
 @media screen and (min-width: 769px)
 .columns:not(.is-desktop) {
     display: flex;
+}
+
+@media screen and (min-width: 769px), print
+.column.is-9, .column.is-9-tablet {
+    flex: none;
+    width: 74%;
 }
