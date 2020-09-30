@@ -8,14 +8,20 @@ export class MainPage extends Component{
     const { clients } = this.props
     console.log(clients)
     return(
-      <div>
-        <div>
-        <Menu/>
-        </div>
-        <div>
-        <Container clients={clients} />
+    <div className="main-page">
+    <nav className="navbar is-white"></nav>
+    <div className="navbar-brand"></div>
+      <div className="container">
+        <div className="columns">
+            <div className="column is-3">
+              <Menu/>
+            </div>
+            <div className="column is-9">
+              <Container clients={clients} />
+            </div>
         </div>
       </div>
+    </div>
 
     )
   }

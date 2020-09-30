@@ -62,7 +62,7 @@ export class LoginForm extends Component {
             </p>
           </div>
           <div className="field">
-            <p className="control">
+            <p className="control-button-login">
               <button  className="button is-success">
                 Login
               </button>

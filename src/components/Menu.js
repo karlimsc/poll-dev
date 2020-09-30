@@ -4,17 +4,27 @@ export class Menu extends Component{
 
   render(){
       return(
-          <div className="column is-3 ">
             <aside className="menu">
               <p className="menu-label">
-                General
-              </p>
-              <ul className="menu-list">
-                <li>Dashboard</li>
-                <li>Customers</li>
-              </ul>
+                    General
+                </p>
+                <ul className="menu-list">
+                    <li className="menu-list-a is-active">Dashboard</li>
+                    <li className="menu-list-a">Change password</li>
+                </ul>
+                <p className="menu-label">
+                    Manage Poll
+                </p>
+                <p className="menu-label">
+                    Manage Authorities
+                </p>
+                <p className="menu-label">
+                    Manage Interfaces
+                </p>
+                <p className="menu-label">
+                    Manage Reports
+                </p>
             </aside>
-          </div>
       )
     }
 }
